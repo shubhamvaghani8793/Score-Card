@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <!-- <link href='https://fonts.googleapis.com/css?family=Hanken Grotesk' rel='stylesheet'> -->
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <div class="container">
+            <div class="result">
+                <h2>Your Result</h2>
+                <div class="score">
+                    <h1 id="total">76</h1>
+                    <p>of 100</p>
+                </div>
+                <div class="summery">
+                    <h2>Great</h2>
+                    <p>You scored <span id="textScore"> higher than </span> 65% of the people who have taken these tests.</p>
+                </div>
+            </div>
+
+            <div class="subject-box">
+                <h2>Summary</h2>
+                <div class="subjects-list">
+                    <div class="subject sub-1">
+                        <h3>Reaction</h3>
+                        <p><span id="s1">80 </span> / 100</p>
+                    </div>
+
+                    <div class="subject sub-2">
+                        <h3>Memory</h3>
+                        <p><span id="s2">92 </span> / 100</p>
+                    </div>
+
+                    <div class="subject sub-3">
+                        <h3>Verbal</h3>
+                        <p><span id="s3">61 </span> / 100</p>
+                    </div>
+
+                    <div class="subject sub-4">
+                        <h3>Visual</h3>
+                        <p><span id="s4">72 </span> / 100</p>
+                    </div>
+                </div>
+                <div class="btn" onclick="getResult()"><p> Continue </p></div>
+            </div>
+        </div>
+    </main>
+</body>
+<script>
+
+    function getResult(){
+
+        // JSON CODE.............
+
+        // var xml = new XMLHttpRequest();
+        // xml.onload = function() {
+        //     const myJson = JSON.parse(this.responseText);
+        //     var total = 0;
+        //     myJson.forEach((val,index) => {
+        //         total += myJson[index].score;
+        //     });
+
+            
+        //     var score = Math.round((total/400) * 100);
+            
+        //     document.getElementById("s1").innerHTML = myJson[0].score;
+        //     document.getElementById("s2").innerHTML = myJson[1].score;
+        //     document.getElementById("s3").innerHTML = myJson[2].score;
+        //     document.getElementById("s4").innerHTML = myJson[3].score;
+
+        //     document.getElementById("total").innerHTML = score;
+        // };
+        // xml.open("GET","data.txt",true);
+        // xml.send();
+
+
+        // RANDOM NUMBER AND SCORE..............
+
+        var sub1 = Math.round(Math.random() * 99);
+        var sub2 = Math.round(Math.random() * 99);    
+        var sub3 = Math.round(Math.random() * 99);
+        var sub4 = Math.round(Math.random() * 99);
+        var sum = sub1 + sub2 + sub3 + sub4;
+        var total = Math.round((sum / 400) * 100);
+
+
+        document.getElementById('s1').innerHTML = sub1;
+        document.getElementById('s2').innerHTML = sub2;
+        document.getElementById('s3').innerHTML = sub3;
+        document.getElementById('s4').innerHTML = sub4;
+        document.getElementById("total").innerHTML = total;
+
+        if (total < 65) {
+            document.getElementById("textScore").innerHTML = "less than";
+        }else{
+            document.getElementById("textScore").innerHTML = "higher than";
+        }
+    }
+
+</script>
+</html>
